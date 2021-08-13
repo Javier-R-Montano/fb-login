@@ -1,5 +1,14 @@
 import logo from './logo.svg';
 import './App.css';
+import React from 'react';
+import FacebookLogin from 'react-facebook-login';
+const responseFacebook = (response) => {
+  console.log(response);
+}
+
+const componentClicked = () => {
+  console.log('click');
+}
 
 function App() {
   return (
@@ -17,6 +26,15 @@ function App() {
         >
           Learn React
         </a>
+        <FacebookLogin
+          appId="1435421300147613"
+          autoLoad={true}
+          fields="name,email,picture"
+          scope="public_profile,user_friends,user_actions.books"
+          version="11.0"
+          onClick={componentClicked}
+          callback={responseFacebook} 
+        />
       </header>
     </div>
   );
